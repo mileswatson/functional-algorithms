@@ -16,6 +16,12 @@ let dominatedGame =
     |> array2D
     |> GameTheory.Game
 
+let randomGame =
+    [[ 4.; 1. ]
+     [ -2.; 2.]]
+    |> array2D
+    |> GameTheory.Game
+
 [<Fact>]
 let ``Find rows' playsafe`` () =
     let maximin =
@@ -37,3 +43,11 @@ let ``Check stable game`` () =
 [<Fact>]
 let ``Remove dominated rows`` () =
     Assert.StrictEqual(stableGame, GameTheory.optimiseRows dominatedGame)
+
+[<Fact>]
+let ``Rows mixed strategy``() =
+    Assert.StrictEqual(4./7., GameTheory.rowsMixedStrategy randomGame)
+
+[<Fact>]
+let ``Columns mixed strategy``() =
+    Assert.StrictEqual(1./7., GameTheory.columnsMixedStrategy randomGame)

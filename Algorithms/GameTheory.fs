@@ -31,3 +31,23 @@ let optimiseRows (Game g) =
     |> Seq.choose (fun x -> x)
     |> array2D
     |> Game
+
+let rowsMixedStrategy (Game g) = 
+    if Array2D.length1 g <> 2 || Array2D.length2 g <> 2 then
+        invalidArg (nameof g) "Game must be 2x2"
+    else
+        let a = g.[0, 0]
+        let b = g.[0, 1]
+        let c = g.[1, 0]
+        let d = g.[1, 1]
+        (d-c)/(a-b-c+d)
+
+let columnsMixedStrategy (Game g) =
+    if Array2D.length1 g <> 2 || Array2D.length2 g <> 2 then
+        invalidArg (nameof g) "Game must be 2x2"
+    else
+        let a = g.[0, 0]
+        let b = g.[0, 1]
+        let c = g.[1, 0]
+        let d = g.[1, 1]
+        (d-b)/(a-c-b+d)
