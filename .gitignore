@@ -1,0 +1,10 @@
+*
+!*/
+!.gitignore
+!*.sln
+src/*
+!**.fsproj
+!**.fs
+
+**/obj/
+**/bin/
