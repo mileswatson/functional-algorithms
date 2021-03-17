@@ -1,4 +1,4 @@
-module Tests
+module GameTheory
 
 open System
 open Xunit
