@@ -7,19 +7,26 @@ let stableGame =
     [[ 2.; 3. ]
      [ -4.; 5.]]
     |> array2D
-    |> GameTheory.game
+    |> GameTheory.Game
+
+let dominatedGame =
+    [[ 2.; 3. ]
+     [ 1.; 0. ]
+     [ -4.; 5.]]
+    |> array2D
+    |> GameTheory.Game
 
 [<Fact>]
-let ``Check rowPlaySafe (maximin)`` () =
+let ``Find rows' playsafe`` () =
     let maximin =
-        stableGame
+        dominatedGame
         |> GameTheory.rowPlaySafe
     Assert.StrictEqual(2., maximin)
 
 [<Fact>]
-let ``Check columnPlaySafe (minimax)`` () =
+let ``Check columns' playsafe`` () =
     let minimax =
-        stableGame
+        dominatedGame
         |> GameTheory.columnPlaySafe
     Assert.StrictEqual(2., minimax)
 
@@ -27,3 +34,6 @@ let ``Check columnPlaySafe (minimax)`` () =
 let ``Check stable game`` () =
     Assert.True(GameTheory.stable stableGame)
 
+[<Fact>]
+let ``Remove dominated rows`` () =
+    Assert.StrictEqual(stableGame, GameTheory.optimiseRows dominatedGame)
