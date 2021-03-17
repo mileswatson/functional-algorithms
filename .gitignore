@@ -1,7 +1,10 @@
 *
 !*/
+
 !.gitignore
 !*.sln
+!README.md
+
 src/*
 !**.fsproj
 !**.fs
