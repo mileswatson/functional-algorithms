@@ -1,9 +1,11 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
+    <OtherFlags>--tailcalls+</OtherFlags>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Searching.fs" />
     <Compile Include="GameTheory.fs" />
+    <Compile Include="Sorting.fs" />
+    <Compile Include="Searching.fs" />
   </ItemGroup>
 </Project>

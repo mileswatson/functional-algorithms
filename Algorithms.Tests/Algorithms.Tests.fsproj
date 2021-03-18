@@ -5,8 +5,9 @@
     <GenerateProgramFile>false</GenerateProgramFile>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Searching.Tests.fs" />
     <Compile Include="GameTheory.Tests.fs" />
+    <Compile Include="Searching.Tests.fs" />
+    <Compile Include="Sorting.Tests.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
   <ItemGroup>

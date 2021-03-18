@@ -1,6 +1,5 @@
 module Searching
 
-open System
 open Xunit
 
 let size = 17

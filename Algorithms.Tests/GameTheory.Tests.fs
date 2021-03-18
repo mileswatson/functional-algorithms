@@ -1,6 +1,5 @@
 module GameTheory
 
-open System
 open Xunit
 
 let stableGame =
