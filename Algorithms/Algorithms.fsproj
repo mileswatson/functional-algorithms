@@ -5,6 +5,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="GameTheory.fs" />
+    <Compile Include="Graph.fs" />
     <Compile Include="Sorting.fs" />
     <Compile Include="Searching.fs" />
   </ItemGroup>
