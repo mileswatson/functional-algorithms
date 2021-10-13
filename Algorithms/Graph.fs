@@ -8,16 +8,20 @@ type GraphType =
     | NonEulerian
 
 let graph nodes connections =
-    Seq.init nodes (fun n ->
-        connections
-        |> Seq.map (fun conn ->
-            let v1 = fst conn
-            let v2 = snd conn
-            if v1 = n then Some v2
-            elif v2 = n then Some v1
-            else None)
-        |> Seq.choose id
-        |> Set.ofSeq)
+    Seq.init
+        nodes
+        (fun n ->
+            connections
+            |> Seq.map
+                (fun conn ->
+                    let v1 = fst conn
+                    let v2 = snd conn
+
+                    if v1 = n then Some v2
+                    elif v2 = n then Some v1
+                    else None)
+            |> Seq.choose id
+            |> Set.ofSeq)
     |> Seq.mapi (fun i x -> (i, x))
     |> Map.ofSeq
     |> Graph
